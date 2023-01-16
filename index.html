@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <style>
+      .Simple-tooltip .tt-content {
+        visibility: hidden;
+        background-color: gray;
+        color: white;
+        display: flex;
+      }
+
+      .Simple-tooltip:hover .tt-content {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body
+    style="justify-content: center; align-items: center; text-align: center">
+    <div class="Simple-tooltip">
+      <h1>Query 1</h1>
+      <section class="tt-content">
+        <code>
+          SELECT ?robot ?nature_de_l_élément ?nature_de_l_élémentLabel
+          ?identifiant_du_Google_Knowledge_Graph WHERE { SERVICE wikibase:label
+          { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } ?robot
+          wdt:P31 wd:Q11012. OPTIONAL { ?robot wdt:P31 ?nature_de_l_élément. }
+          OPTIONAL { ?robot wdt:P2671 ?identifiant_du_Google_Knowledge_Graph. }
+          } LIMIT 100
+        </code>
+      </section>
+    </div>
+    <iframe
+      style="width: 80vw; height: 50vh; border: none"
+      src="https://query.wikidata.org/embed.html#SELECT%20%3Frobot%20%3Fnature_de_l_%C3%A9l%C3%A9ment%20%3Fnature_de_l_%C3%A9l%C3%A9mentLabel%20%3Fidentifiant_du_Google_Knowledge_Graph%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Frobot%20wdt%3AP31%20wd%3AQ11012.%0A%20%20OPTIONAL%20%7B%20%3Frobot%20wdt%3AP31%20%3Fnature_de_l_%C3%A9l%C3%A9ment.%20%7D%0A%20%20%3Frobot%20wdt%3AP2671%20%3Fidentifiant_du_Google_Knowledge_Graph.%20%0A%7D%0ALIMIT%20100"
+      referrerpolicy="origin"
+      sandbox="allow-scripts allow-same-origin allow-popups">
+    </iframe>
+    <div class="Simple-tooltip">
+      <h2>Query 2</h2>
+      <section class="tt-content">
+        <code>
+          SELECT ?fabricant ?fabricantLabel ?nature_de_l_élémentLabel ?image
+          WHERE { SERVICE wikibase:label { bd:serviceParam wikibase:language
+          "[AUTO_LANGUAGE],en". } ?university wdt:P31 wd:Q68; wdt:P176
+          ?fabricant; wdt:P18 ?image. OPTIONAL { ?university wdt:P31
+          ?nature_de_l_élément. } } LIMIT 5
+        </code>
+      </section>
+    </div>
+    <iframe
+      style="width: 80vw; height: 50vh; border: none"
+      src="https://query.wikidata.org/embed.html#SELECT%20%3Ffabricant%20%3FfabricantLabel%20%3Fnature_de_l_%C3%A9l%C3%A9mentLabel%20%3Fimage%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Funiversity%20wdt%3AP31%20wd%3AQ68%3B%0A%20%20%20%20wdt%3AP176%20%3Ffabricant%3B%0A%20%20%20%20wdt%3AP18%20%3Fimage.%0A%20%20OPTIONAL%20%7B%20%3Funiversity%20wdt%3AP31%20%3Fnature_de_l_%C3%A9l%C3%A9ment.%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%20%20OPTIONAL%20%7B%20%20%7D%0A%7D%0ALIMIT%2050"
+      referrerpolicy="origin"
+      sandbox="allow-scripts allow-same-origin allow-popups">
+    </iframe>
+  </body>
+</html>
