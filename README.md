@@ -1,3 +1,3 @@
 # DataVisual
 
-https://mir-ak.github.io/DataVisual/index.html
+https://mir-ak.github.io/DataVisual
