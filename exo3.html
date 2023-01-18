@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous" />
+  </head>
+  <body>
+    <ul class="nav nav-tabs" id="navBar" style="background-color: gray">
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Exo1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="exo2.html" id="exo2">Exo2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="exo3.html" id="exo3">Exo3</a>
+      </li>
+    </ul>
+    <center>
+      <div>
+        <h2>Votes By Animes with Json Data</h2>
+        <div id="vis">
+          <script>
+            const spec = {
+              $schema: "https://vega.github.io/schema/vega/v5.json",
+              description:
+                "A basic bar chart example, with value labels shown upon mouse hover.",
+              width: 400,
+              height: 200,
+              padding: 5,
+              data: [
+                {
+                  name: "Anime",
+                  values: [
+                    {
+                      anime: "Naruto Shippuuden",
+                      anime_url: "https://www.crunchyroll.com/naruto-shippuden",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/1c1df98707aa0f22aa54342af725e48a1491245343_full.jpg",
+                      episodes: 500,
+                      votes: 48518,
+                      weight: 233346,
+                      rate: 4.81,
+                    },
+                    {
+                      anime: "Shugo Chara",
+                      anime_url: "https://www.crunchyroll.com/shugo-chara",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/7c0c0cd3958894b2dafc740ba847e4f11279141777_full.jpg",
+                      episodes: 51,
+                      votes: 33688,
+                      weight: 163641,
+                      rate: 4.86,
+                    },
+                    {
+                      anime: "BLEACH",
+                      anime_url: "https://www.crunchyroll.com/bleach",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire2/52edb7a843abacb4ff0f642c8eda14401325114125_full.jpg",
+                      episodes: 366,
+                      votes: 23900,
+                      weight: 115445,
+                      rate: 4.83,
+                    },
+                    {
+                      anime: "Naruto",
+                      anime_url: "https://www.crunchyroll.com/naruto",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire2/0145388e3ecfdb5a63ce1e9feaeef44a1279141923_full.jpg",
+                      episodes: 220,
+                      votes: 16613,
+                      weight: 79667,
+                      rate: 4.8,
+                    },
+                    {
+                      anime: "Skip Beat!",
+                      anime_url: "https://www.crunchyroll.com/skip-beat",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/4bbe3a679c7365d16dd49c9d78ae992e1279142023_full.jpg",
+                      episodes: 0,
+                      votes: 15011,
+                      weight: 73683,
+                      rate: 4.91,
+                    },
+                    {
+                      anime: "REBORN!",
+                      anime_url: "https://www.crunchyroll.com/reborn",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/445d2fd74c924440b1ca61600789e2861383180162_full.jpg",
+                      episodes: 0,
+                      votes: 12542,
+                      weight: 61262,
+                      rate: 4.88,
+                    },
+                    {
+                      anime: "Gintama",
+                      anime_url: "https://www.crunchyroll.com/gintama",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire2/54c15675670ba44c1f98c3e11ba0cddf1515030877_full.jpg",
+                      episodes: 379,
+                      votes: 11435,
+                      weight: 55745,
+                      rate: 4.87,
+                    },
+                    {
+                      anime: "La Corda d'Oro ~primo passo~ and ~secondo passo~",
+                      anime_url:
+                        "https://www.crunchyroll.com/la-corda-doro-primo-passo-and-secondo-passo",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire2/383071a2c629ff64fb33669a793eac311293594874_full.png",
+                      episodes: 0,
+                      votes: 9555,
+                      weight: 46479,
+                      rate: 4.86,
+                    },
+                    {
+                      anime: "Eyeshield 21",
+                      anime_url: "https://www.crunchyroll.com/eyeshield-21",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/f7adee8b50d73664021c3e4e3042e8101279142732_full.jpg",
+                      episodes: 0,
+                      votes: 8466,
+                      weight: 41028,
+                      rate: 4.85,
+                    },
+                    {
+                      anime: "Hayate the Combat Butler! (S1 e S2)",
+                      anime_url:
+                        "https://www.crunchyroll.com/hayate-the-combat-butler-season-1-2",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/8ad9366eab2ceca1a872a26c5b96574f1446849740_full.jpg",
+                      episodes: 77,
+                      votes: 5689,
+                      weight: 27576,
+                      rate: 4.85,
+                    },
+                    {
+                      anime: "Natsume Yuujinchou",
+                      anime_url:
+                        "https://www.crunchyroll.com/natsume-yujin-cho",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/3b7183aa0e0b39430cd4f294ab4a9f231327959666_full.jpg",
+                      episodes: 39,
+                      votes: 5158,
+                      weight: 25208,
+                      rate: 4.89,
+                    },
+                    {
+                      anime: "Myself; Yourself",
+                      anime_url: "https://www.crunchyroll.com/myself-yourself",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/ce637f84d074ecb1d1a7d65ff85464f21273802656_full.jpg",
+                      episodes: 0,
+                      votes: 4588,
+                      weight: 22000,
+                      rate: 4.8,
+                    },
+                    {
+                      anime: "Blue Exorcist",
+                      anime_url: "https://www.crunchyroll.com/blue-exorcist",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/e0c8a39fa014e57a95ef3682a4cc61d31483733959_full.jpg",
+                      episodes: 12,
+                      votes: 4498,
+                      weight: 21661,
+                      rate: 4.82,
+                    },
+                    {
+                      anime: "Durarara!!",
+                      anime_url: "https://www.crunchyroll.com/durarara",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/4e653adda1d5c4622bd496dc10cacf211451958742_full.jpg",
+                      episodes: 62,
+                      votes: 4042,
+                      weight: 19606,
+                      rate: 4.85,
+                    },
+                    {
+                      anime: "Time of Eve",
+                      anime_url: "https://www.crunchyroll.com/time-of-eve",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire2/afbe92137e5717d72f8f0ec9a9dca9321423792090_full.jpg",
+                      episodes: 6,
+                      votes: 3864,
+                      weight: 18819,
+                      rate: 4.87,
+                    },
+                    {
+                      anime: "Tegami Bachi Letter Bee",
+                      anime_url:
+                        "https://www.crunchyroll.com/tegami-bachi-letter-bee",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/beef79da8c22ef118f47afa068143cf21529088431_full.jpg",
+                      episodes: 0,
+                      votes: 3593,
+                      weight: 17363,
+                      rate: 4.83,
+                    },
+                    {
+                      anime: "School Days",
+                      anime_url: "https://www.crunchyroll.com/school-days",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/ee4f69cccf34b06057eb7d3ae48f57191345364926_full.jpg",
+                      episodes: 0,
+                      votes: 3484,
+                      weight: 14390,
+                      rate: 4.13,
+                    },
+                    {
+                      anime: "Sword Art Online",
+                      anime_url: "https://www.crunchyroll.com/sword-art-online",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/1695b24f123889418228be89e00b9a0d1570828158_full.jpg",
+                      episodes: 89,
+                      votes: 3458,
+                      weight: 15226,
+                      rate: 4.4,
+                    },
+                    {
+                      anime: "The World God Only Knows",
+                      anime_url:
+                        "https://www.crunchyroll.com/the-world-god-only-knows",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/4462386a1d99869f81bcc2cf3effc7671375831867_full.jpg",
+                      episodes: 36,
+                      votes: 3443,
+                      weight: 16430,
+                      rate: 4.77,
+                    },
+                    {
+                      anime: "Demon King Daimao",
+                      anime_url:
+                        "https://www.crunchyroll.com/demon-king-daimao",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/d876e77fc48e04830e37083c768453cf1279145332_full.jpg",
+                      episodes: 0,
+                      votes: 3420,
+                      weight: 16148,
+                      rate: 4.72,
+                    },
+                    {
+                      anime: "Neo Angelique Abyss",
+                      anime_url:
+                        "https://www.crunchyroll.com/neo-angelique-abyss",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/a2fa03b20ae43176088bddfbbd60ae901279148471_full.jpg",
+                      episodes: 0,
+                      votes: 3258,
+                      weight: 15470,
+                      rate: 4.75,
+                    },
+                    {
+                      anime: "Happiness!",
+                      anime_url: "https://www.crunchyroll.com/happiness",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/2ccca23700d511a033d047ca0ae037ec1279142545_full.jpg",
+                      episodes: 0,
+                      votes: 3069,
+                      weight: 14529,
+                      rate: 4.73,
+                    },
+                    {
+                      anime: "Linebarrels of Iron",
+                      anime_url:
+                        "https://www.crunchyroll.com/linebarrels-of-iron",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire1/7693af688a4ecab8da7f349ffa7d25691279142985_full.jpg",
+                      episodes: 0,
+                      votes: 3026,
+                      weight: 13850,
+                      rate: 4.58,
+                    },
+                    {
+                      anime: "Beelzebub",
+                      anime_url: "https://www.crunchyroll.com/beelzebub",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/be709d61c2952bd6f73cbcf949b8e8931293503784_full.jpg",
+                      episodes: 0,
+                      votes: 2928,
+                      weight: 14027,
+                      rate: 4.79,
+                    },
+                    {
+                      anime: "Nogizaka Haruka no Himitsu",
+                      anime_url:
+                        "https://www.crunchyroll.com/nogizaka-haruka-no-himitsu",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire3/c50f5b571000791ccac45e802c28f5471281738341_full.jpg",
+                      episodes: 0,
+                      votes: 2504,
+                      weight: 12133,
+                      rate: 4.85,
+                    },
+                    {
+                      anime: "Chi's Sweet Home - Chi's New Address",
+                      anime_url:
+                        "https://www.crunchyroll.com/chis-sweet-home-chis-new-address",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire2/0c9da2e3085a7acb7207ffb47785ea241279145339_full.jpg",
+                      episodes: 0,
+                      votes: 2467,
+                      weight: 11947,
+                      rate: 4.84,
+                    },
+                    {
+                      anime: "Hanasakeru Seishonen",
+                      anime_url:
+                        "https://www.crunchyroll.com/hanasakeru-seishonen",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/cd62441dec5884c39a8fd5567453e4ad1377640989_full.jpg",
+                      episodes: 0,
+                      votes: 2461,
+                      weight: 11829,
+                      rate: 4.81,
+                    },
+                    {
+                      anime: "Saki",
+                      anime_url: "https://www.crunchyroll.com/saki",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/d9f5e51c6ce7a1c3c36cd0728596d2dc1389320768_full.jpg",
+                      episodes: 38,
+                      votes: 2367,
+                      weight: 11134,
+                      rate: 4.7,
+                    },
+                    {
+                      anime: "Slam Dunk",
+                      anime_url: "https://www.crunchyroll.com/slam-dunk",
+                      anime_img:
+                        "https://img1.ak.crunchyroll.com/i/spire4/f26a43ba646fa169a232726fe578d0cd1279145968_full.jpg",
+                      episodes: 0,
+                      votes: 2351,
+                      weight: 11039,
+                      rate: 4.7,
+                    },
+                  ],
+                },
+              ],
+              signals: [
+                {
+                  name: "tooltip",
+                  value: {},
+                  on: [
+                    { events: "rect:mouseover", update: "datum" },
+                    { events: "rect:mouseout", update: "{}" },
+                  ],
+                },
+              ],
+              scales: [
+                {
+                  name: "xscale",
+                  type: "band",
+                  domain: { data: "Anime", field: "anime" },
+                  range: "width",
+                  padding: 0.5,
+                  round: true,
+                },
+                {
+                  name: "yscale",
+                  domain: { data: "Anime", field: "votes" },
+                  nice: true,
+                  range: "height",
+                },
+              ],
+              axes: [
+                {
+                  orient: "bottom",
+                  scale: "xscale",
+                  labelAngle: -90,
+                  labelPadding: 90,
+                },
+                { orient: "left", scale: "yscale" },
+              ],
+              marks: [
+                {
+                  type: "rect",
+                  from: { data: "Anime" },
+                  encode: {
+                    enter: {
+                      x: { scale: "xscale", field: "anime" },
+                      width: { scale: "xscale", band: 1 },
+                      y: { scale: "yscale", field: "votes" },
+                      y2: { scale: "yscale", value: 0 },
+                    },
+                    update: { fill: { value: "steelblue" } },
+                    hover: { fill: { value: "red" } },
+                  },
+                },
+                {
+                  type: "text",
+                  encode: {
+                    enter: {
+                      align: { value: "center" },
+                      baseline: { value: "bottom" },
+                      fill: { value: "#333" },
+                    },
+                    update: {
+                      x: {
+                        scale: "xscale",
+                        signal: "tooltip.category",
+                        band: 0.8,
+                      },
+                      y: {
+                        scale: "yscale",
+                        signal: "tooltip.amount",
+                        offset: -8,
+                      },
+                      text: { signal: "tooltip.amount" },
+                      fillOpacity: [
+                        { test: "datum === tooltip", value: 0 },
+                        { value: 1 },
+                      ],
+                    },
+                  },
+                },
+              ],
+              config: {},
+            };
+            vegaEmbed("#vis", spec, { mode: "vega" })
+              .then(console.log)
+              .catch(console.warn);
+          </script>
+        </div>
+      </div>
+    </center>
+  </body>
+</html>
